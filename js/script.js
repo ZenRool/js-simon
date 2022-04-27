@@ -1,6 +1,14 @@
+const gridNum = document.getElementsByTagName("section")[0];
+const ans = fiveNum ();
+ans.forEach(num => {
+    const box = document.createElement("div");
+    box.classList.add("box");
+    box.innerHTML = `<span>${num}</span>`
+    gridNum.append(box);
+    
+});
 
 
-console.log(fiveNum());
 
 
 
