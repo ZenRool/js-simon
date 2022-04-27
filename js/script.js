@@ -1,11 +1,14 @@
 //Genero il display con i 5 numeri
 const gridNum = document.getElementsByTagName("section")[0];
 const ans = fiveNum ();
+const numsBox = [];
 ans.forEach(num => {
     const box = document.createElement("div");
     box.classList.add("box");
     box.innerHTML = `<span>${num}</span>`
     gridNum.append(box);
+    numsBox.push(box);
+    
     
 });
 // Aspetto 30k milli secondi 
@@ -13,12 +16,14 @@ setTimeout( () =>
 {
     toggle();
     setTimeout (play, 100);
-    
+
 
 
 }, 3000);
 
 function play () {
+    // contatore risposte giuste
+    let counter = 0;
     // risposte del giocatore 
     const playerArr = [];
     while(playerArr.length < 5) {
@@ -31,6 +36,25 @@ function play () {
             alert ("Un NUMERO da 0 a 99 non è difficile");
         }
     }
+    const correctNum = [];
+    // per ogni elemento del array corretto 
+    ans.forEach(ansNum => {
+        correctNum.push(playerArr.includes(ansNum));
+    });
+    for(let i=0 ; i < numsBox.length ; i++) {
+        if (playerArr.includes(ans[i])) {
+            numsBox[i].classList.add("correct");
+            counter ++;
+        }
+        else {
+            numsBox[i].classList.add("missed");
+        }
+    }
+    toggle();
+    console.log(counter);
+
+    
+    
 }
 
 
