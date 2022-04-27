@@ -9,6 +9,15 @@
 html {
     font-family: sans-serif;
 }
+h1 {
+    font-size: 4rem;
+}
+h2 {
+    font-size: 3rem;
+}
+h1 , h2 {
+    text-align: center;
+}
 main {
     padding: 30px;
     display: flex;
@@ -20,6 +29,12 @@ section {
     justify-content: center;
     margin-top: 40px;
     user-select: none;
+}
+main>div {
+    font-size: 2rem;
+    margin-top: 30px;
+    font-weight: 400;
+    text-align: center;
 }
 
 

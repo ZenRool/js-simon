@@ -19,7 +19,7 @@ setTimeout( () =>
 
 
 
-}, 3000);
+}, 30000); // 30k di ms => 3s 
 
 function play () {
     // contatore risposte giuste
@@ -36,11 +36,7 @@ function play () {
             alert ("Un NUMERO da 0 a 99 non è difficile");
         }
     }
-    const correctNum = [];
-    // per ogni elemento del array corretto 
-    ans.forEach(ansNum => {
-        correctNum.push(playerArr.includes(ansNum));
-    });
+
     for(let i=0 ; i < numsBox.length ; i++) {
         if (playerArr.includes(ans[i])) {
             numsBox[i].classList.add("correct");
@@ -51,7 +47,9 @@ function play () {
         }
     }
     toggle();
-    console.log(counter);
+    //Scrivo la risposta nel dom
+    document.querySelector("main>div").innerHTML = `<span>Ti sei ricordato di ${counter} numeri</span> ${counter === 5 ? "<h2>Bravo li hai ricordati tutti! <h2>" : ""}`;
+
 
     
     
